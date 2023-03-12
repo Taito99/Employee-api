@@ -28,7 +28,7 @@ class Profession(str, Enum):
 class Employee(BaseModel):
     first_name: str
     last_name: str
-    id: Optional[UUID] = uuid4()
+    id: Optional[UUID] = uuid4()  # Generates random id
     gender: Gender
     email: str
     phone_number: str

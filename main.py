@@ -41,7 +41,7 @@ def employee_doesnt_exists(user_id: UUID):
 
 @app.get("/")
 async def root():
-    return {"Employee api" }
+    return {"Employee api"}  # Welcome page
 
 
 @app.get("/api/v1/employees")
@@ -52,7 +52,7 @@ async def fetch_employees():
 @app.post("/api/v1/employees")
 async def add_employee(employee: Employee):
     db.append(employee)
-    return {"id": employee.id}
+    return {"id": employee.id}  # automatically gives an id to new employee
 
 
 @app.delete("/api/v1/employees")
@@ -60,7 +60,7 @@ async def delete_employee(employee_id: UUID):
     for employee in db:
         if employee.id == employee_id:
             db.remove(employee)
-            return employee_doesnt_exists(employee_id)
+            return employee_doesnt_exists(employee_id)  # if there is no employee with that id throw a code 404
 
 
 @app.put("/api/v1/employees")
